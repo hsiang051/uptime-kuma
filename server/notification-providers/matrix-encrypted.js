@@ -53,7 +53,31 @@ class MatrixEncrypted extends NotificationProvider {
             log.info("Matrix", "Reusing existing client instance");
         }
 
+        log.info("Matrix", `Checking membership for room ${notification.internalRoomId}...`);
+        
+        let room = MatrixEncrypted.client.getRoom(notification.internalRoomId);
+        
+        const membership = room ? room.getMyMembership() : null;
+
+        if (membership !== "join") {
+            log.info("Matrix", `Bot is not in the room (current status: ${membership || "unknown"}). Attempting to join...`);
+            try {
+                await MatrixEncrypted.client.joinRoom(notification.internalRoomId);
+                log.info("Matrix", "Successfully joined the room!");
+                room = MatrixEncrypted.client.getRoom(notification.internalRoomId);
+            } catch (err) {
+                throw new Error(`Cannot join room ${notification.internalRoomId}. Did you invite the bot? \nError: ${err.message}`);
+            }
+        }
+
         log.info("Matrix", "Sending encrypted message…");
+
+        // Wait until processed the room's m.room.encryption state event.
+        const crypto = MatrixEncrypted.client.getCrypto();
+        for (let i = 0; i < 20; i++) {
+            if (await crypto.isEncryptionEnabledInRoom(notification.internalRoomId)) break;
+            await new Promise((r) => setTimeout(r, 500));
+        }
 
         await MatrixEncrypted.client.sendMessage(notification.internalRoomId, {
             msgtype: "m.text",
