@@ -11,6 +11,7 @@ const { IDBFactory, IDBKeyRange } = require("fake-indexeddb");
 const DATA_DIR = path.join(process.cwd(), "data", "matrix");
 
 // ── IndexedDB serialization helpers ─────────────────────────────────────────
+// Generated with assistance by Claude (Anthropic)
 
 /** Wrap an IDBRequest in a Promise */
 function idbReq(request) {
