@@ -318,7 +318,7 @@
     "promosmsSMSSender": "簡訊寄件人名稱：預先註冊的名稱或以下的預設名稱：InfoSMS、SMS Info、MaxSMS、INFO、SMS",
     "Feishu WebHookUrl": "飛書 WebHook 網址",
     "matrixHomeserverURL": "Homeserver 網址 (開頭為 http(s)://，結尾可能帶連接埠)",
-    "Internal Room Id": "內部識別碼",
+    "Internal Room Id": "內部房間 ID",
     "matrixDesc1": "您可以在 Matrix 客戶端的房間設定中的進階選項找到 internal room ID。應該看起來像 !QMdRCpUIfLwsfjxye6:home.server。",
     "matrixDesc2": "使用您自己的 Matrix 使用者存取權杖將賦予存取您的帳號和您加入的房間的完整權限。建議建立新使用者，並邀請至您想要接收通知的房間中。您可以執行 {0} 以取得存取權杖",
     "Method": "方法",
