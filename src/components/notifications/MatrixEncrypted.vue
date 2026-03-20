@@ -25,8 +25,9 @@
         <p style="margin-top: 8px;">
             {{ $t("matrixDesc1") }}
         </p>
-        <i18n-t tag="p" keypath="matrixDesc2" style="margin-top: 8px;">
-            <code>curl -XPOST --json '{"type": "m.login.password", "identifier": {"user": "botusername", "type": "m.id.user"}, "password": "passwordforuser"}' "https://home.server/_matrix/client/v3/login"</code>.
+        <p style="margin-top: 8px;">{{ $t("matrixDesc2") }}</p>
+        <i18n-t tag="p" keypath="matrixDesc3" style="margin-top: 8px;">
+            <code>curl -XPOST --json '{"type": "m.login.password", "identifier": {"user": "botusername", "type": "m.id.user"}, "password": "passwordforuser"}' "https://home.server/_matrix/client/v3/login"</code>
         </i18n-t>
     </div>
 </template>
