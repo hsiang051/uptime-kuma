@@ -114,6 +114,7 @@
         "limiter": "~2.1.0",
         "liquidjs": "^10.7.0",
         "marked": "^14.0.0",
+        "fake-indexeddb": "^6.2.5",
         "matrix-js-sdk": "^39.3.0",
         "mitt": "~3.0.1",
         "mongodb": "~4.17.1",
